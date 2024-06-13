@@ -101,13 +101,12 @@
             });
         }
         function startTime(sfw) {
-            // This code runs every second
-            // could be optimized to check time in miliseconds and set timeout to when minute will change next time.
+            var nextTime = (60 - (new Date()).getSeconds() + 2) * 1000;
             
             var time = new Date();
             if (current_date !== undefined
                 && current_date.getMinutes() === time.getMinutes()) {
-                var t = setTimeout(startTime, 1000);
+                var t = setTimeout(startTime, nextTime);
                 return;
             }
 
@@ -121,7 +120,7 @@
             updateText(time, sfw);
 
             // Timeout
-            var t = setTimeout(startTime, 1000);
+            var t = setTimeout(startTime, nextTime);
         }
 
         function oneMinuteAgo(time) {
