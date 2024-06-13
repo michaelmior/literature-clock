@@ -34,6 +34,7 @@ cite #book{
 }
 
 #buttom {
+    visibility: hidden;
     height: 10px; 
     width: 90%;
     position: fixed; 
